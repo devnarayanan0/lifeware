@@ -1,0 +1,278 @@
+// Sample Indian donor data
+export const mockDonors = [
+  {
+    id: 1,
+    full_name: 'Rajesh Kumar',
+    age: 28,
+    blood_type: 'A+',
+    location: 'Mumbai, Maharashtra',
+    contact: '+91 98765 43210',
+    last_donation_date: '2025-07-01',
+    availability: 'Available',
+    email: 'rajesh.k@email.com'
+  },
+  {
+    id: 2,
+    full_name: 'Priya Sharma',
+    age: 25,
+    blood_type: 'O-',
+    location: 'Delhi',
+    contact: '+91 98765 43211',
+    last_donation_date: '2025-06-15',
+    availability: 'Available',
+    email: 'priya.s@email.com'
+  },
+  {
+    id: 3,
+    full_name: 'Amit Patel',
+    age: 32,
+    blood_type: 'B+',
+    location: 'Ahmedabad, Gujarat',
+    contact: '+91 98765 43212',
+    last_donation_date: '2025-07-10',
+    availability: 'Available',
+    email: 'amit.p@email.com'
+  },
+  {
+    id: 4,
+    full_name: 'Deepa Verma',
+    age: 27,
+    blood_type: 'AB+',
+    location: 'Bangalore, Karnataka',
+    contact: '+91 98765 43213',
+    last_donation_date: '2025-05-20',
+    availability: 'Available',
+    email: 'deepa.v@email.com'
+  },
+  {
+    id: 5,
+    full_name: 'Suresh Reddy',
+    age: 30,
+    blood_type: 'O+',
+    location: 'Hyderabad, Telangana',
+    contact: '+91 98765 43214',
+    last_donation_date: '2025-06-30',
+    availability: 'Available',
+    email: 'suresh.r@email.com'
+  },
+  {
+    id: 6,
+    full_name: 'Ananya Singh',
+    age: 24,
+    blood_type: 'A-',
+    location: 'Kolkata, West Bengal',
+    contact: '+91 98765 43215',
+    last_donation_date: '2025-07-05',
+    availability: 'Available',
+    email: 'ananya.s@email.com'
+  },
+  {
+    id: 7,
+    full_name: 'Mohammed Khan',
+    age: 35,
+    blood_type: 'B-',
+    location: 'Chennai, Tamil Nadu',
+    contact: '+91 98765 43216',
+    last_donation_date: '2025-06-25',
+    availability: 'Available',
+    email: 'mohammed.k@email.com'
+  },
+  {
+    id: 8,
+    full_name: 'Kavita Joshi',
+    age: 29,
+    blood_type: 'AB-',
+    location: 'Pune, Maharashtra',
+    contact: '+91 98765 43217',
+    last_donation_date: '2025-07-15',
+    availability: 'Available',
+    email: 'kavita.j@email.com'
+  },
+  {
+    id: 9,
+    full_name: 'Ravi Menon',
+    age: 31,
+    blood_type: 'O+',
+    location: 'Kochi, Kerala',
+    contact: '+91 98765 43218',
+    last_donation_date: '2025-06-20',
+    availability: 'Available',
+    email: 'ravi.m@email.com'
+  },
+  {
+    id: 10,
+    full_name: 'Neha Gupta',
+    age: 26,
+    blood_type: 'A+',
+    location: 'Jaipur, Rajasthan',
+    contact: '+91 98765 43219',
+    last_donation_date: '2025-07-08',
+    availability: 'Available',
+    email: 'neha.g@email.com'
+  },
+  {
+    id: 11,
+    full_name: 'Vikram Malhotra',
+    age: 33,
+    blood_type: 'B+',
+    location: 'Chandigarh',
+    contact: '+91 98765 43220',
+    last_donation_date: '2025-06-28',
+    availability: 'Available',
+    email: 'vikram.m@email.com'
+  },
+  {
+    id: 12,
+    full_name: 'Meera Iyer',
+    age: 28,
+    blood_type: 'AB+',
+    location: 'Bangalore, Karnataka',
+    contact: '+91 98765 43221',
+    last_donation_date: '2025-07-12',
+    availability: 'Available',
+    email: 'meera.i@email.com'
+  },
+  {
+    id: 13,
+    full_name: 'Arjun Nair',
+    age: 30,
+    blood_type: 'O-',
+    location: 'Trivandrum, Kerala',
+    contact: '+91 98765 43222',
+    last_donation_date: '2025-06-18',
+    availability: 'Available',
+    email: 'arjun.n@email.com'
+  },
+  {
+    id: 14,
+    full_name: 'Pooja Shah',
+    age: 27,
+    blood_type: 'A-',
+    location: 'Surat, Gujarat',
+    contact: '+91 98765 43223',
+    last_donation_date: '2025-07-03',
+    availability: 'Available',
+    email: 'pooja.s@email.com'
+  },
+  {
+    id: 15,
+    full_name: 'Karthik Raman',
+    age: 34,
+    blood_type: 'B-',
+    location: 'Coimbatore, Tamil Nadu',
+    contact: '+91 98765 43224',
+    last_donation_date: '2025-06-22',
+    availability: 'Available',
+    email: 'karthik.r@email.com'
+  },
+  {
+    id: 16,
+    full_name: 'Divya Krishnan',
+    age: 25,
+    blood_type: 'AB+',
+    location: 'Chennai, Tamil Nadu',
+    contact: '+91 98765 43225',
+    last_donation_date: '2025-07-14',
+    availability: 'Available',
+    email: 'divya.k@email.com'
+  },
+  {
+    id: 17,
+    full_name: 'Sanjay Mehta',
+    age: 32,
+    blood_type: 'O+',
+    location: 'Indore, Madhya Pradesh',
+    contact: '+91 98765 43226',
+    last_donation_date: '2025-06-27',
+    availability: 'Available',
+    email: 'sanjay.m@email.com'
+  },
+  {
+    id: 18,
+    full_name: 'Anjali Desai',
+    age: 29,
+    blood_type: 'A+',
+    location: 'Vadodara, Gujarat',
+    contact: '+91 98765 43227',
+    last_donation_date: '2025-07-07',
+    availability: 'Available',
+    email: 'anjali.d@email.com'
+  },
+  {
+    id: 19,
+    full_name: 'Rahul Kapoor',
+    age: 31,
+    blood_type: 'B+',
+    location: 'Lucknow, Uttar Pradesh',
+    contact: '+91 98765 43228',
+    last_donation_date: '2025-06-19',
+    availability: 'Available',
+    email: 'rahul.k@email.com'
+  },
+  {
+    id: 20,
+    full_name: 'Shreya Reddy',
+    age: 26,
+    blood_type: 'AB-',
+    location: 'Visakhapatnam, Andhra Pradesh',
+    contact: '+91 98765 43229',
+    last_donation_date: '2025-07-11',
+    availability: 'Available',
+    email: 'shreya.r@email.com'
+  },
+  {
+    id: 21,
+    full_name: 'Arun Kumar',
+    age: 33,
+    blood_type: 'O-',
+    location: 'Bhopal, Madhya Pradesh',
+    contact: '+91 98765 43230',
+    last_donation_date: '2025-06-24',
+    availability: 'Available',
+    email: 'arun.k@email.com'
+  },
+  {
+    id: 22,
+    full_name: 'Lakshmi Menon',
+    age: 28,
+    blood_type: 'A+',
+    location: 'Mangalore, Karnataka',
+    contact: '+91 98765 43231',
+    last_donation_date: '2025-07-09',
+    availability: 'Available',
+    email: 'lakshmi.m@email.com'
+  },
+  {
+    id: 23,
+    full_name: 'Nitin Verma',
+    age: 30,
+    blood_type: 'B+',
+    location: 'Nagpur, Maharashtra',
+    contact: '+91 98765 43232',
+    last_donation_date: '2025-06-21',
+    availability: 'Available',
+    email: 'nitin.v@email.com'
+  },
+  {
+    id: 24,
+    full_name: 'Shweta Singh',
+    age: 27,
+    blood_type: 'AB+',
+    location: 'Patna, Bihar',
+    contact: '+91 98765 43233',
+    last_donation_date: '2025-07-13',
+    availability: 'Available',
+    email: 'shweta.s@email.com'
+  },
+  {
+    id: 25,
+    full_name: 'Vinod Sharma',
+    age: 35,
+    blood_type: 'O+',
+    location: 'Dehradun, Uttarakhand',
+    contact: '+91 98765 43234',
+    last_donation_date: '2025-06-26',
+    availability: 'Available',
+    email: 'vinod.s@email.com'
+  }
+];

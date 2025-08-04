@@ -1,23 +1,5 @@
-/* DonorSearchPage Styles - Modern Glossy Theme .search-input {
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #f8fafc;
-  transition: all 0.2s ease;
-  width: 100%;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #2563eb;
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-.search-input::placeholder {
-  color: #94a3b8;
-}nor-page {
+/* DonorSearchPage Styles - Modern Glossy Theme */
+.donor-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   padding: 1rem;
@@ -52,10 +34,8 @@
 
 .search-inputs {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
 .input-group {
@@ -91,17 +71,10 @@
 }
 
 .donor-card {
-  background: linear-gradient(145deg, #ffffff, #f0f4f8);
+  background: white;
   border-radius: 8px;
   padding: 1.25rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
-}
-
-.donor-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .donor-avatar {
@@ -150,46 +123,21 @@
 }
 
 .btn {
-  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s;
 }
 
 .btn-primary {
-  background: #2563eb;
+  background: #007bff;
   color: white;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.btn-primary:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
 }
 
 .btn-secondary {
-  background: #4b5563;
+  background: #6c757d;
   color: white;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.btn-secondary:hover {
-  background: #374151;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(75, 85, 99, 0.2);
-}
-
-.browse-btn {
-  padding: 0.75rem 2rem !important;
-  font-size: 1rem !important;
-  background: #2563eb;
-  border-radius: 8px;
-  margin: 1rem 0;
 }
 
 .browse-more {
@@ -253,7 +201,6 @@
   max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .modal-header {
@@ -287,7 +234,7 @@
 .form-input {
   padding: 0.75rem;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 1rem;
 }
 

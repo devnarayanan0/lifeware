@@ -78,7 +78,7 @@ const HomePage = () => {
                       <span></span>
                     </div>
                   ) : (
-                    `${lifewareData.length.toLocaleString()}+`
+                    `25+`
                   )}
                 </div>
                 <div className="stats-label">Currently registered donors</div>

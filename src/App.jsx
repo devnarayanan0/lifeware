@@ -7,11 +7,13 @@ import DonorSearchPage from './pages/DonorSearchPage';
 import RegisterDonorPage from './pages/RegisterDonorPage';
 import NotFoundPage from './pages/NotFoundPage';
 import SetupGuide from './components/SetupGuide';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <SetupGuide>
       <Router>
+        <ScrollToTop />
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />

@@ -32,13 +32,18 @@ const DonorSearchPage = () => {
     }, 1000);
   };
 
-  // Filter donors based on blood group and location
+  // Filter donors based on search criteria
   const filteredDonors = donors.filter(donor => {
+    const matchesSearch = !searchQuery || 
+      donor.full_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      donor.location.toLowerCase().includes(searchQuery.toLowerCase());
+    
     const matchesBloodGroup = !bloodGroup || donor.blood_type === bloodGroup;
+    
     const matchesLocation = !location || 
       donor.location.toLowerCase().includes(location.toLowerCase());
     
-    return matchesBloodGroup && matchesLocation;
+    return matchesSearch && matchesBloodGroup && matchesLocation;
   });
 
   const handleSearch = (e) => {
@@ -95,7 +100,8 @@ const DonorSearchPage = () => {
       <div className="container">
         <header className="donor-header">
           <div className="header-content">
-
+            <h1>Find Blood Donors</h1>
+            <p>Search from our database of {donors.length} registered donors</p>
           </div>
         </header>
 
@@ -104,6 +110,18 @@ const DonorSearchPage = () => {
             <h2>Search for Donors</h2>
             <form onSubmit={handleSearch} className="search-form">
               <div className="search-inputs">
+                <div className="input-group">
+                  <label htmlFor="searchQuery">Search by name or location</label>
+                  <input
+                    type="text"
+                    id="searchQuery"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Enter name or location..."
+                    className="search-input"
+                  />
+                </div>
+                
                 <div className="input-group">
                   <label htmlFor="bloodGroup">Blood Group</label>
                   <select
@@ -154,7 +172,7 @@ const DonorSearchPage = () => {
           ) : (
             <div className="donors-grid">
               {filteredDonors.length > 0 ? (
-                (bloodGroup || location ? filteredDonors : filteredDonors.slice(0, 8)).map(donor => (
+                filteredDonors.map(donor => (
                   <div key={donor.id} className="donor-card">
                     <div className="donor-avatar">
                       <div className="avatar-initial">
@@ -182,13 +200,13 @@ const DonorSearchPage = () => {
                     <div className="donor-contact">
                       <button 
                         onClick={() => window.location.href = `tel:${donor.contact}`}
-                        className="btn btn-primary contact-btn"
+                        className="btn btn-primary"
                       >
                         📞 Call
                       </button>
                       <button 
                         onClick={() => window.location.href = `mailto:${donor.email}`}
-                        className="btn btn-secondary contact-btn"
+                        className="btn btn-secondary"
                       >
                         ✉️ Email
                       </button>
@@ -205,16 +223,6 @@ const DonorSearchPage = () => {
                       : 'No donors are currently registered. Be the first to register and help save lives!'
                     }
                   </p>
-                </div>
-              )}
-              {!bloodGroup && !location && filteredDonors.length > 8 && (
-                <div className="browse-more">
-                  <button 
-                    onClick={() => setSearchQuery('')} 
-                    className="btn btn-primary browse-btn"
-                  >
-                    Browse All Donors
-                  </button>
                 </div>
               )}
             </div>
