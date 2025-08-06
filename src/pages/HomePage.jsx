@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../services/supabase';
+import { mockDonors } from '../data/mockDonors';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -87,7 +88,7 @@ const HomePage = () => {
           </div>
           
           <div className="hero-buttons">
-            <Link to="/donors" className="btn btn-primary hero-btn-primary">
+            <Link to="/donors" className="btn btn-secondary hero-btn-secondary">
               <span className="btn-icon">🔍</span>
               Find Donors
             </Link>
@@ -95,9 +96,9 @@ const HomePage = () => {
               <span className="btn-icon">❤️</span>
               Become a Donor
             </Link>
-            <Link to="/chatbot" className="btn btn-outline">
+            <Link to="/chatbot" className="btn btn-primary hero-btn-primary">
               <span className="btn-icon">🤖</span>
-              AI Health Assistant
+              Lifelaa
             </Link>
           </div>
         </div>
@@ -113,114 +114,49 @@ const HomePage = () => {
       <section className="donor-list-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Donor List from LIFEWARE</h2>
+            <h2 className="section-title">Featured Donors</h2>
             <p className="section-subtitle">
-              Browse our registered donors and find compatible matches for your needs.
+              Preview of our registered donors. Visit the donors page to see all available donors.
             </p>
+            <Link to="/donors" className="btn btn-primary">
+              View All Donors
+            </Link>
           </div>
 
-          {/* Search and Filter Controls */}
-          <div className="search-controls">
-            <div className="search-inputs">
-              <div className="input-group">
-                <input
-                  type="text"
-                  placeholder="Search by name or location..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="search-input"
-                />
-              </div>
-              
-              <div className="input-group">
-                <select
-                  value={bloodGroupFilter}
-                  onChange={(e) => setBloodGroupFilter(e.target.value)}
-                  className="filter-select"
-                >
-                  <option value="">All Blood Groups</option>
-                  {bloodGroups.map(group => (
-                    <option key={group} value={group}>{group}</option>
-                  ))}
-                </select>
-              </div>
-              
-              <div className="input-group">
-                <input
-                  type="text"
-                  placeholder="Filter by location..."
-                  value={locationFilter}
-                  onChange={(e) => setLocationFilter(e.target.value)}
-                  className="search-input"
-                />
-              </div>
-            </div>
-            
-            <div className="filter-info">
-              <span className="filter-count">
-                Showing {filteredDonors.length} of {lifewareData.length} donors
-              </span>
-            </div>
-          </div>
-
+           
           {/* Donor Grid */}
-          {loading ? (
-            <div className="loading-container">
-              <div className="loading-spinner"></div>
-              <p>Loading donors from LIFEWARE...</p>
-            </div>
-          ) : (
-            <div className="donor-grid">
-              {filteredDonors.length > 0 ? (
-                filteredDonors.map((donor) => (
-                  <div key={donor.id || donor.name} className="donor-card">
-                    <div className="donor-avatar">
-                      <div className="avatar-initial">
-                        {donor.name?.split(' ').map(n => n[0]).join('').toUpperCase() || 'D'}
-                      </div>
-                      <div className="availability-badge">
-                        🟢 Available
-                      </div>
-                    </div>
-                    
-                    <div className="donor-info">
-                      <h3 className="donor-name">{donor.name || 'Anonymous Donor'}</h3>
-                      <div className="donor-details">
-                        <span className="blood-group">{donor.blood_group}</span>
-                        <span className="location">📍 {donor.location}</span>
-                        {donor.age && <span className="age">Age: {donor.age}</span>}
-                        {donor.last_donated && (
-                          <span className="last-donation">
-                            Last donation: {new Date(donor.last_donated).toLocaleDateString()}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div className="donor-actions">
-                      <button className="btn btn-outline contact-btn">
-                        📞 Contact
-                      </button>
-                    </div>
+          <div className="donor-grid">
+            {mockDonors.slice(0, 3).map((donor) => (
+              <div key={donor.id} className="donor-card">
+                <div className="donor-avatar">
+                  <div className="avatar-initial">
+                    {donor.full_name?.split(' ').map(n => n[0]).join('').toUpperCase() || 'D'}
                   </div>
-                ))
-              ) : (
-                <div className="no-results">
-                  <div className="no-results-icon">🔍</div>
-                  <h3>No donors found</h3>
-                  <p>
-                    {searchQuery || bloodGroupFilter || locationFilter 
-                      ? 'Try adjusting your search criteria or register as a donor to help others.'
-                      : 'No donors are currently registered. Be the first to register and help save lives!'
-                    }
-                  </p>
-                  <Link to="/register-donor" className="btn btn-primary">
-                    Register as Donor
-                  </Link>
+                  <div className="availability-badge">
+                    🟢 {donor.availability || 'Available'}
+                  </div>
                 </div>
-              )}
-            </div>
-          )}
+                <div className="donor-info">
+                  <h3 className="donor-name">{donor.full_name}</h3>
+                  <div className="donor-details">
+                    <span className="blood-group">{donor.blood_type}</span>
+                    <span className="location">📍 {donor.location}</span>
+                    {donor.age && <span className="age">Age: {donor.age}</span>}
+                    {donor.last_donation_date && (
+                      <span className="last-donation">
+                        Last donation: {new Date(donor.last_donation_date).toLocaleDateString()}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="donor-actions">
+                  <button className="btn btn-outline contact-btn">
+                    📞 Contact
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -311,7 +247,7 @@ const HomePage = () => {
             <Link to="/register-donor" className="btn btn-primary">
               Register as Donor
             </Link>
-            <Link to="/donors" className="btn btn-outline">
+            <Link to="/donors" className="btn btn-primary">
               Find Donors
             </Link>
           </div>
@@ -320,8 +256,8 @@ const HomePage = () => {
 
       {/* Footer */}
       <footer className="footer">
-        <div className="container">
-          <p>&copy; 2024 Lifeware Collective. Making healthcare accessible, one donor at a time.</p>
+        <div className="container" >
+          <p>&copy; 2025 Lifeware Collective.</p>
         </div>
       </footer>
     </div>

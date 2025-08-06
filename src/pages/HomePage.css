@@ -855,9 +855,12 @@
 /* Donor Grid */
 .donor-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
   margin-top: var(--spacing-lg);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .donor-card {
@@ -1061,4 +1064,17 @@
   .contact-btn {
     width: 100%;
   }
-} 
+} .btn-outline {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  border: none;
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(99, 102, 241, 0.3);
+}
