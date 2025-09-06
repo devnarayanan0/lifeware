@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import ChatbotPage from './pages/ChatbotPage';
+import LifelaAIPage from './pages/LifelaAIPage';
 import DonorSearchPage from './pages/DonorSearchPage';
 import RegisterDonorPage from './pages/RegisterDonorPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/chatbot" element={<ChatbotPage />} />
+          <Route path="/ai" element={<LifelaAIPage />} />
           <Route path="/donors" element={<DonorSearchPage />} />
           <Route path="/register-donor" element={<RegisterDonorPage />} />
           <Route path="*" element={<NotFoundPage />} />

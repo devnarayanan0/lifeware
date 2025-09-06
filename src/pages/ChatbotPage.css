@@ -483,4 +483,38 @@
     width: 36px;
     height: 36px;
   }
+}
+
+/* Enhanced Message Formatting */
+.message-text {
+  line-height: 1.6;
+}
+
+.message-line {
+  margin-bottom: 0.4em;
+}
+
+.message-line:last-child {
+  margin-bottom: 0;
+}
+
+.message-line.empty-line {
+  height: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+/* Style for bold text */
+.message-bubble strong {
+  font-weight: 700;
+  color: inherit;
+}
+
+/* Better spacing for structured content */
+.message-line:first-child {
+  margin-top: 0;
+}
+
+/* Improve readability for lists */
+.message-line:has(strong) {
+  margin-bottom: 0.6em;
 } 

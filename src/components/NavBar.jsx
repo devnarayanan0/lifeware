@@ -16,7 +16,7 @@ const NavBar = () => (
         <li><Link to="/" className="nav-link">Home</Link></li>
         <li><Link to="/donors" className="nav-link">Find Donors</Link></li>
         <li><Link to="/register-donor" className="nav-link nav-link-primary">Register as Donor</Link></li>
-        <li><Link to="/chatbot" className="nav-link">LifeLa AI</Link></li>
+        <li><Link to="/ai" className="nav-link">LifeLa AI</Link></li>
       </ul>
     </div>
   </nav>

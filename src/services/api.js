@@ -1,7 +1,7 @@
 import { supabase, isSupabaseConfigured, safeSupabaseOperation } from './supabase';
 
 // Chatbot API configuration
-const CHATBOT_API_KEY = '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';
+const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 
 // Supabase API functions
 export const supabaseApi = {
@@ -110,18 +110,22 @@ export const supabaseApi = {
 export const chatbotApi = {
   async sendMessage(message) {
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      if (!GROQ_API_KEY) {
+        throw new Error('Groq API key not configured');
+      }
+
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${CHATBOT_API_KEY}`,
+          'Authorization': `Bearer ${GROQ_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
+          model: 'llama-3.1-8b-instant',
           messages: [
             {
               role: 'system',
-              content: 'You are a helpful AI health assistant specializing in Thalassemia support. Provide accurate, helpful information about diet, treatment, symptoms, and support resources. Always recommend consulting healthcare professionals for personalized medical advice.'
+              content: 'You are a helpful AI health assistant specializing in Thalassemia support. Provide accurate, helpful information about diet, treatment, symptoms, and support resources. Always recommend consulting healthcare professionals for personalized medical advice. Keep responses concise and helpful.'
             },
             {
               role: 'user',
@@ -134,13 +138,19 @@ export const chatbotApi = {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to get response from chatbot');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(`Groq API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
       }
 
       const data = await response.json();
       return data.choices[0]?.message?.content || 'Sorry, I couldn\'t process your request.';
     } catch (error) {
-      console.error('Error calling chatbot API:', error);
+      console.error('Error calling Groq chatbot API:', error);
+      
+      if (error.message.includes('API key not configured')) {
+        return 'AI assistance is not properly configured. Please check the API key settings.';
+      }
+      
       return 'I\'m having trouble connecting right now. Please try again later.';
     }
   },
